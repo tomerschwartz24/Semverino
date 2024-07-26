@@ -1,3 +1,3 @@
 # Semverino
 
-Test
+## Simplifying semver for your projects

@@ -1,3 +1,5 @@
+import subprocess
+
 from determineo import check_if_tag_exist, check_if_previous_commit_is_tagged
 from helpers.logger import setup_logger
 from consts import INITAL_VERSION
@@ -13,5 +15,17 @@ def determine_if_tagging_is_needed():
         tagging_needed = False
     return tagging_needed
 
+def tag_if_needed(tagging_needed=False):
+    if tagging_needed:
+        tagger()
 
-tagging_needed = determine_if_tagging_is_needed()
+def tagger():
+    subprocess.run(['git', 'tag', '{}'.format(INITAL_VERSION)])
+    logger.info("Tagged HEAD with inital version {}".format(INITAL_VERSION))
+
+    
+def main():
+    tagging_needed = determine_if_tagging_is_needed()
+    tag_if_needed(tagging_needed)
+    
+main()

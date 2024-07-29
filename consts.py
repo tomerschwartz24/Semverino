@@ -1,1 +1,3 @@
 INITAL_VERSION = "0.1.0"
+
+HARBOR_URL = "test"

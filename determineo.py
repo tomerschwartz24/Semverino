@@ -4,6 +4,7 @@ from helpers.logger import setup_logger
 
 logger = setup_logger("determino-logger")
 
+
 def check_if_tag_exist():
     try:
         HEAD_TAG = subprocess.check_output(['git', 'describe', '--tags', '--abbrev=7', 'HEAD'], text=True)
@@ -14,7 +15,8 @@ def check_if_tag_exist():
     if HEAD_TAG is not None:
         logger.info(' Latest commit is tagged as: {}'.format(HEAD_TAG))
         return HEAD_TAG
-    
+
+
 def check_if_previous_commit_is_tagged():
     try:
         PREVIOUS_TAG = subprocess.check_output(['git', 'describe', '--tags', 'HEAD~1'], text=True)

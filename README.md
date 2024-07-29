@@ -1,3 +1,3 @@
 # Semverino
 
-## Simplifying semver for your projects
+## Simplifying semver for your microservices
